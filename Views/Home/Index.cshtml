@@ -1,0 +1,75 @@
+@{
+    Layout = null; //Masterpage kullanmayacağımızı söylemiş olduk
+}
+
+@model List<DataTransferToView.Models.Category>
+
+<html>
+    <head>
+        <title>
+            Bilge Adam
+        </title>
+        <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+        crossorigin="anonymous">
+    </head>
+
+    <body>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col">
+            <table class="table table-hover">
+                <caption>
+                    Model'den gelen
+                </caption>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Kategori Adı</th>
+                        <th>Açıklama</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var category in Model)
+                    {
+                    <tr>
+                        <td>@category.CategoryID</td>
+                        <td>@category.CategoryName</td>
+                        <td>@category.Description</td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col">
+            <table class="table table-hover">
+                <caption>
+                    ViewBag'den gelen
+                </caption>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Kategori Adı</th>
+                        <th>Açıklama</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var category in ViewBag.Kategoriler)
+                    {
+                    <tr>
+                        <td>@category.CategoryID</td>
+                        <td>@category.CategoryName</td>
+                        <td>@category.Description</td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+    </body>
+</html>
